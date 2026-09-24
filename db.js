@@ -680,17 +680,46 @@ const initialData = {
   ]
 };
 
+let memoryData = null;
+
 export function initDB() {
-  fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
-  console.log("Database initialized & connected successfully!");
+  if (!memoryData) {
+    try {
+      if (fs.existsSync(DB_FILE)) {
+        const raw = fs.readFileSync(DB_FILE, 'utf-8');
+        memoryData = JSON.parse(raw);
+      } else {
+        memoryData = initialData;
+        try {
+          fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
+        } catch (e) {
+          // Vercel serverless read-only filesystem
+        }
+      }
+    } catch (e) {
+      memoryData = initialData;
+    }
+  }
 }
 
 export function readDB() {
   initDB();
-  const raw = fs.readFileSync(DB_FILE, 'utf-8');
-  return JSON.parse(raw);
+  try {
+    if (fs.existsSync(DB_FILE)) {
+      const raw = fs.readFileSync(DB_FILE, 'utf-8');
+      return JSON.parse(raw);
+    }
+  } catch (e) {
+    // Fallback to memoryData
+  }
+  return memoryData || initialData;
 }
 
 export function writeDB(data) {
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+  memoryData = data;
+  try {
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+  } catch (e) {
+    // Handle Vercel read-only filesystem gracefully
+  }
 }

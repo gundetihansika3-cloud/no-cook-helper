@@ -326,6 +326,10 @@ app.get('*', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 No Cook Helper Backend Server running at http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 No Cook Helper Backend Server running at http://localhost:${PORT}`);
+  });
+}
+
+export default app;
