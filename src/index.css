@@ -2,50 +2,51 @@
   --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', sans-serif;
   
-  --bg-color: #0b0f19;
-  --bg-card: rgba(23, 32, 51, 0.75);
-  --bg-card-hover: rgba(32, 45, 71, 0.85);
-  --bg-glass: rgba(18, 26, 43, 0.65);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(16, 185, 129, 0.3);
+  --bg-color: #faf6f0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fffdf9;
+  --bg-glass: rgba(255, 253, 249, 0.92);
+  --border-color: #f0e6d8;
+  --border-highlight: rgba(224, 122, 95, 0.35);
 
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --text-dim: #6b7280;
+  --text-main: #3d405b;
+  --text-muted: #6c757d;
+  --text-dim: #9ca3af;
 
-  --primary: #10b981;
-  --primary-hover: #059669;
-  --primary-glow: rgba(16, 185, 129, 0.25);
+  --primary: #e07a5f;
+  --primary-hover: #d97706;
+  --primary-glow: rgba(224, 122, 95, 0.25);
 
   --accent-orange: #f97316;
-  --accent-amber: #f59e0b;
-  --accent-purple: #8b5cf6;
-  --accent-red: #ef4444;
+  --accent-amber: #d97706;
+  --accent-sage: #81b29a;
+  --accent-cream: #f4ece1;
+  --accent-red: #e63946;
 
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,0.5);
-  --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.2);
+  --shadow-sm: 0 4px 12px rgba(217, 119, 6, 0.05);
+  --shadow-lg: 0 14px 35px rgba(217, 119, 6, 0.08);
+  --shadow-glow: 0 6px 20px rgba(224, 122, 95, 0.25);
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
   --radius-pill: 9999px;
 }
 
-[data-theme="light"] {
-  --bg-color: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --border-color: #e2e8f0;
-  --border-highlight: rgba(16, 185, 129, 0.4);
+[data-theme="dark"] {
+  --bg-color: #1a1614;
+  --bg-card: #26211e;
+  --bg-card-hover: #302a26;
+  --bg-glass: rgba(38, 33, 30, 0.92);
+  --border-color: #3d3530;
+  --border-highlight: rgba(224, 122, 95, 0.4);
 
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #94a3b8;
+  --text-main: #f5efe6;
+  --text-muted: #c4b8aa;
+  --text-dim: #8c7f72;
 
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-  --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 14px 35px rgba(0,0,0,0.5);
 }
 
 * {
@@ -63,13 +64,16 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding-bottom: 70px; /* Space for Mobile Bottom Nav */
+  padding-bottom: 75px;
+  background-image: radial-gradient(rgba(224, 122, 95, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
   font-weight: 700;
+  color: var(--text-main);
 }
 
 a {
@@ -82,10 +86,10 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.25 ease;
 }
 
-/* Glassmorphic Container Utility */
+/* Cozy Glassmorphic Container */
 .glass-panel {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
@@ -95,7 +99,6 @@ button {
   box-shadow: var(--shadow-lg);
 }
 
-/* Container Layout */
 .app-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -117,16 +120,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 76px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--primary);
+  font-family: var(--font-heading);
 }
 
 .brand-logo span {
@@ -141,10 +145,10 @@ button {
 }
 
 .nav-item button, .nav-item a {
-  padding: 0.45rem 0.75rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-pill);
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--text-muted);
   display: flex;
   align-items: center;
@@ -154,18 +158,18 @@ button {
 
 .nav-item button:hover, .nav-item.active button {
   color: var(--primary);
-  background: rgba(16, 185, 129, 0.12);
+  background: rgba(224, 122, 95, 0.12);
 }
 
-/* Mobile Bottom Navigation Bar */
+/* Mobile Bottom Nav */
 .mobile-bottom-nav {
   display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 65px;
-  background: rgba(11, 15, 25, 0.95);
+  height: 68px;
+  background: var(--bg-glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border-color);
@@ -182,9 +186,9 @@ button {
   justify-content: center;
   background: transparent;
   color: var(--text-muted);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   gap: 0.2rem;
-  width: 20%;
+  width: 18%;
   height: 100%;
 }
 
@@ -202,34 +206,34 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.7rem;
   border-radius: var(--radius-pill);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .badge-veg {
-  background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(129, 178, 154, 0.2);
+  color: #2b7a58;
+  border: 1px solid rgba(129, 178, 154, 0.4);
 }
 
 .badge-nonveg {
-  background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(230, 57, 70, 0.15);
+  color: #e63946;
+  border: 1px solid rgba(230, 57, 70, 0.3);
 }
 
 .badge-time {
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(217, 119, 6, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, 0.3);
 }
 
 /* Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), #059669);
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
   color: #ffffff;
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-pill);
@@ -242,7 +246,7 @@ button {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 25px rgba(224, 122, 95, 0.35);
 }
 
 .btn-secondary {
@@ -264,18 +268,20 @@ button {
 
 /* Hero Section */
 .hero-section {
-  padding: 3rem 0 2rem 0;
+  padding: 3.5rem 0 2.5rem 0;
   text-align: center;
   position: relative;
 }
 
 .hero-title {
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   line-height: 1.15;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff 30%, var(--primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-main);
+}
+
+.hero-title span {
+  color: var(--primary);
 }
 
 .hero-subtitle {
@@ -285,38 +291,39 @@ button {
   margin: 0 auto 2rem auto;
 }
 
-/* Target Users Bar */
+/* Target Users Grid */
 .user-types-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
   margin: 2rem 0;
 }
 
 .user-type-card {
-  padding: 1.25rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   border-radius: var(--radius-md);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
 .user-type-card:hover {
   transform: translateY(-4px);
   border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
 }
 
 .user-type-icon {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin-bottom: 0.5rem;
 }
 
-/* Recipe Grid */
+/* Recipe Grid & Rounded Cards */
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 1.75rem;
   margin: 2rem 0;
 }
 
@@ -325,11 +332,12 @@ button {
   display: flex;
   flex-direction: column;
   height: 100%;
+  border-radius: var(--radius-md);
 }
 
 .recipe-card-img-wrapper {
   position: relative;
-  height: 190px;
+  height: 200px;
   width: 100%;
   overflow: hidden;
 }
@@ -346,21 +354,22 @@ button {
 }
 
 .recipe-card-body {
-  padding: 1.25rem;
+  padding: 1.4rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .recipe-card-title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin: 0.5rem 0;
+  color: var(--text-main);
 }
 
 .recipe-card-desc {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   flex-grow: 1;
 }
 
@@ -368,22 +377,23 @@ button {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(8px);
   border: none;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #333;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .fav-btn.active {
-  color: #ef4444;
-  background: rgba(255,255,255,0.9);
+  color: #e63946;
+  background: #ffffff;
 }
 
 /* Modal Overlay & Step Cooking */
@@ -391,7 +401,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(45, 36, 30, 0.75);
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
@@ -401,24 +411,26 @@ button {
 
 .modal-content {
   width: 100%;
-  max-width: 850px;
+  max-width: 860px;
   max-height: 90vh;
   overflow-y: auto;
-  padding: 1.75rem;
+  padding: 2rem;
   position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
 }
 
 .timer-box {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(224, 122, 95, 0.08);
   border: 1px solid var(--primary-glow);
-  padding: 1rem;
+  padding: 1.25rem;
   border-radius: var(--radius-md);
   text-align: center;
   margin: 1rem 0;
 }
 
 .timer-display {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-family: var(--font-heading);
   font-weight: 800;
   color: var(--primary);
@@ -432,15 +444,15 @@ button {
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .nav-links {
-    display: none; /* Hide top desktop links on mobile */
+    display: none;
   }
 
   .mobile-bottom-nav {
-    display: flex; /* Show mobile app bottom navigation */
+    display: flex;
   }
 
   .recipes-grid {

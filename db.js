@@ -3,28 +3,41 @@ import path from 'path';
 
 const DB_FILE = path.join(process.cwd(), 'data.json');
 
-// Comprehensive seed dataset matching user requirements:
-// - Juices, Milkshakes, Gym Protein Food, No-Stove/No-Oven Recipes
-// - Gym Diet Plans (Muscle Gain, Fat Loss, Veg Gym Plan)
-// - Step-by-Step AI Video previews for every step!
+// Cozy Family Kitchen Initial Seed Data (Matching the new Intelligence Hub diagram & specs)
 const initialData = {
   users: [
     {
       id: "u_demo",
-      name: "Gym & Fitness Chef",
+      name: "Cozy Family Chef",
       email: "demo@nocook.com",
       password: "password123",
       dietPreference: "High Protein",
-      cookingSkill: "Beginner",
+      allergies: ["None"],
+      budgetLimit: 50,
       createdAt: new Date().toISOString()
     }
   ],
-  favorites: ["r_gym_protein_shake", "r_avocado_toast", "r_paneer_wrap"],
+  favorites: ["r_egg_toast", "r_paneer_wrap", "r_detox_green_juice", "r_avocado_toast"],
   history: [
-    { recipeId: "r_gym_protein_shake", completedAt: new Date(Date.now() - 86400000).toISOString(), rating: 5, notes: "Awesome post-workout shake! Made in 3 minutes." }
+    { recipeId: "r_egg_toast", completedAt: new Date(Date.now() - 86400000).toISOString(), rating: 5, notes: "Made for family breakfast! Super warm and delicious." }
   ],
   notes: [
-    { id: "n1", recipeId: "r_gym_protein_shake", text: "Add an extra tbsp of peanut butter for 8g extra protein!", date: new Date().toISOString() }
+    { id: "n1", recipeId: "r_egg_toast", text: "Warm the pan on medium heat with fresh butter for the cozy golden color.", date: new Date().toISOString() }
+  ],
+  shoppingList: [
+    { id: "s1", item: "Whole Wheat Bread", quantity: "1 loaf", checked: false },
+    { id: "s2", item: "Fresh Eggs", quantity: "6 pcs", checked: true },
+    { id: "s3", item: "Greek Yogurt", quantity: "200g", checked: false }
+  ],
+  pantryItems: [
+    { id: "p1", name: "Butter / Ghee", category: "Dairy / Oils", status: "In Stock" },
+    { id: "p2", name: "Oats", category: "Grains", status: "In Stock" },
+    { id: "p3", name: "Paneer", category: "Dairy", status: "Low Stock" },
+    { id: "p4", name: "Honey", category: "Sweetener", status: "In Stock" }
+  ],
+  communityPosts: [
+    { id: "c1", author: "Sarah M.", title: "Best tip for college hostel cooking!", content: "Always keep peanut butter and bananas handy. You can make 5 different no-stove recipes in under 3 mins!", likes: 24, date: "2 hours ago" },
+    { id: "c2", author: "Rahul K.", title: "How I saved $40 a week on groceries", content: "Using the No Cook Helper Budget Calculator helped me plan meals with exact ingredients so nothing gets wasted.", likes: 19, date: "Yesterday" }
   ],
   recipes: [
     // ---------------- JUICES & COOLERS ----------------
@@ -38,10 +51,11 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 1,
       calories: 90,
+      costPerServing: 1.5,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
-      description: "Hydrating, fat-burning green detox juice packed with cucumber, fresh mint, lemon, and ginger. Zero cooking required!",
+      description: "Hydrating, fat-burning green detox juice packed with cucumber, fresh mint, lemon, and ginger. Warm family wellness blend!",
       tags: ["Juice", "Detox", "No Stove", "Weight Loss", "Hydration"],
       ingredients: [
         { name: "Cucumber (Chopped)", quantity: "1 medium", substitute: "Celery sticks" },
@@ -51,11 +65,12 @@ const initialData = {
         { name: "Chilled Water", quantity: "1 cup (250ml)", substitute: "Coconut water" },
         { name: "Black Salt / Honey", quantity: "Pinch", substitute: "Stevia" }
       ],
+      toolsNeeded: ["Blender / Juicer", "Mesh Strainer", "Glass Tumbler"],
       safetyTips: ["Wash mint leaves thoroughly under running water to remove any dirt."],
       steps: [
         {
           stepNumber: 1,
-          title: "Prep Ingredients",
+          title: "Prep Fresh Ingredients",
           description: "Peel cucumber (optional) and chop into coarse cubes. Wash fresh mint leaves and peel 1/2 inch ginger.",
           timerSeconds: 60,
           tip: "Keeping ingredients in fridge beforehand gives an icy refreshing juice!",
@@ -67,16 +82,16 @@ const initialData = {
           title: "Blend Until Smooth",
           description: "Add cucumber, mint, ginger, 1 cup water, and lemon juice into your blender jar. Blend on HIGH for 45 seconds.",
           timerSeconds: 45,
-          tip: "No blender? Use a hand immersion stick blender directly in a big tall cup!",
+          tip: "No blender? Use a hand immersion stick blender directly in a tall cup!",
           image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
           videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
         },
         {
           stepNumber: 3,
           title: "Strain & Serve",
-          description: "Pour through a mesh strainer into a glass (or drink unstrained for extra fiber!). Add a pinch of black salt and ice cubes.",
+          description: "Pour through a mesh strainer into a glass. Add a pinch of black salt or honey.",
           timerSeconds: 30,
-          tip: "Drink immediately on an empty stomach for maximum digestion benefits.",
+          tip: "Drink immediately for maximum digestion benefits.",
           image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
           videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
         }
@@ -92,6 +107,7 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 2,
       calories: 110,
+      costPerServing: 1.2,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=800&q=80",
@@ -103,6 +119,7 @@ const initialData = {
         { name: "Mint Leaves", quantity: "5 leaves", substitute: "Basil" },
         { name: "Ice Cubes", quantity: "1/2 cup", substitute: "Chilled water" }
       ],
+      toolsNeeded: ["Blender", "Knife", "Cutting Board"],
       safetyTips: ["Be careful when slicing large watermelons; keep cutting board stable."],
       steps: [
         {
@@ -137,6 +154,7 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 1,
       calories: 420,
+      costPerServing: 2.2,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
@@ -149,14 +167,15 @@ const initialData = {
         { name: "Rolled Oats", quantity: "3 tbsp", substitute: "Chia seeds" },
         { name: "Protein Powder / Cocoa", quantity: "1 scoop (30g)", substitute: "2 tbsp Cocoa powder + 1 tbsp Honey" }
       ],
+      toolsNeeded: ["Blender Jar", "Measuring Spoons"],
       safetyTips: ["Ensure blender lid is securely closed before turning on machine."],
       steps: [
         {
           stepNumber: 1,
           title: "Load Blender Base",
-          description: "Pour 1.5 cups cold milk into blender first (liquid at bottom prevents blade sticking). Add sliced banana, 3 tbsp oats, and 2 tbsp peanut butter.",
+          description: "Pour 1.5 cups cold milk into blender first. Add sliced banana, 3 tbsp oats, and 2 tbsp peanut butter.",
           timerSeconds: 40,
-          tip: "Freezing sliced bananas in ziplock bags creates thick milkshake creaminess without ice!",
+          tip: "Freezing sliced bananas in ziplock bags creates thick milkshake creaminess naturally!",
           image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
           videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
         },
@@ -181,10 +200,11 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 2,
       calories: 230,
+      costPerServing: 1.8,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
-      description: "Traditional probiotic mango yoghurt shake infused with cardamom and saffron. Refreshing and digestive!",
+      description: "Traditional probiotic mango yoghurt shake infused with cardamom and saffron. Refreshing cozy drink!",
       tags: ["Milkshake", "Probiotic", "No Stove", "Dessert"],
       ingredients: [
         { name: "Mango Pulp / Chilled Mango Cubes", quantity: "1 cup", substitute: "Peach or Strawberry" },
@@ -193,6 +213,7 @@ const initialData = {
         { name: "Honey or Sugar", quantity: "2 tbsp", substitute: "Jaggery powder" },
         { name: "Cardamom Powder (Elaichi)", quantity: "1/4 tsp", substitute: "Vanilla extract" }
       ],
+      toolsNeeded: ["Blender Jar", "Spoon"],
       safetyTips: ["Use fresh yogurt so lassi tastes sweet and creamy, not sour."],
       steps: [
         {
@@ -227,10 +248,11 @@ const initialData = {
       cookTimeMinutes: 6,
       servings: 1,
       calories: 340,
+      costPerServing: 2.5,
       isVeg: false,
       isNoStove: false,
       image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
-      description: "High protein muscle builder combining crumbled paneer, eggs, onions, tomatoes, and Indian spices. Ready in 10 mins!",
+      description: "High protein muscle builder combining crumbled paneer, eggs, onions, tomatoes, and Indian spices. Cozy family recipe!",
       tags: ["Gym Protein", "High Protein", "Breakfast", "Muscle Gain"],
       ingredients: [
         { name: "Paneer (Crumbled)", quantity: "100g", substitute: "Firm Tofu (for veg option)" },
@@ -239,6 +261,7 @@ const initialData = {
         { name: "Olive Oil / Ghee", quantity: "1 tsp", substitute: "Butter" },
         { name: "Turmeric, Salt, Red Chili Powder", quantity: "1/4 tsp each", substitute: "Garam masala" }
       ],
+      toolsNeeded: ["Non-Stick Frying Pan", "Spatula", "Bowl"],
       safetyTips: ["Stir continuously on medium heat so paneer stays soft and moist."],
       steps: [
         {
@@ -271,6 +294,7 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 1,
       calories: 310,
+      costPerServing: 2.0,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80",
@@ -282,6 +306,7 @@ const initialData = {
         { name: "Chia Seeds", quantity: "1 tbsp", substitute: "Flaxseeds" },
         { name: "Honey or Maple Syrup", quantity: "1 tbsp", substitute: "Berries" }
       ],
+      toolsNeeded: ["Bowl", "Spoon"],
       safetyTips: ["Store chia seeds in airtight jar in cool cabinet."],
       steps: [
         {
@@ -307,6 +332,7 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 1,
       calories: 240,
+      costPerServing: 1.9,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&q=80",
@@ -319,6 +345,7 @@ const initialData = {
         { name: "Chili Flakes & Black Pepper", quantity: "1/4 tsp", substitute: "Chaat masala" },
         { name: "Cucumber Slices", quantity: "6 rounds", substitute: "Cherry tomatoes" }
       ],
+      toolsNeeded: ["Fork", "Cutting Board", "Butter Knife"],
       safetyTips: ["Cut avocado carefully around pit; scoop flesh out with spoon."],
       steps: [
         {
@@ -351,6 +378,7 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 1,
       calories: 220,
+      costPerServing: 1.1,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
@@ -363,12 +391,13 @@ const initialData = {
         { name: "Lemon Juice", quantity: "1 tbsp", substitute: "Tamarind chutney" },
         { name: "Coriander Leaves", quantity: "1 tbsp", substitute: "Mint" }
       ],
+      toolsNeeded: ["Mixing Bowl", "Spoon"],
       safetyTips: ["If using canned chickpeas, rinse thoroughly under water before using."],
       steps: [
         {
           stepNumber: 1,
           title: "Toss Ingredients",
-          description: "In a mixing bowl, combine 1 cup chickpeas, chopped onions, tomatoes, chaat masala, lemon juice, and coriander. Mix well with spoon!",
+          description: "In a mixing bowl, combine 1 cup chickpeas, chopped onions, tomatoes, chaat masala, lemon juice, and coriander. Mix well!",
           timerSeconds: 40,
           tip: "Great afternoon college snack or evening pre-workout meal!",
           image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
@@ -377,7 +406,7 @@ const initialData = {
       ]
     },
 
-    // ---------------- EXISTING FAVOURITES ----------------
+    // ---------------- EXISTING CLASSICS ----------------
     {
       id: "r_egg_toast",
       title: "5-Minute Easy Egg Toast",
@@ -388,10 +417,11 @@ const initialData = {
       cookTimeMinutes: 5,
       servings: 1,
       calories: 220,
+      costPerServing: 1.4,
       isVeg: false,
       isNoStove: false,
       image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
-      description: "A super quick, foolproof breakfast for students & busy workers. No fancy equipment needed.",
+      description: "A super quick, foolproof cozy breakfast for students & busy workers. No fancy equipment needed.",
       tags: ["Quick", "High Protein", "Breakfast", "Under 10 mins"],
       ingredients: [
         { name: "Bread slices", quantity: "2 slices", substitute: "Gluten-free bread or Tortilla" },
@@ -400,6 +430,7 @@ const initialData = {
         { name: "Black Pepper", quantity: "1/4 tsp", substitute: "Chili flakes" },
         { name: "Salt", quantity: "Pinch", substitute: "Garlic Salt" }
       ],
+      toolsNeeded: ["Frying Pan", "Fork", "Small Bowl", "Spatula"],
       safetyTips: ["Keep stove flame on low-medium so eggs don't burn."],
       steps: [
         {
@@ -414,7 +445,7 @@ const initialData = {
         {
           stepNumber: 2,
           title: "Warm the Pan",
-          description: "Place your pan on the stove and turn heat to MEDIUM. Add 1 tsp of butter and wait until it melts completely (about 30 seconds).",
+          description: "Place your pan on stove and turn heat to MEDIUM. Add 1 tsp of butter and wait until it melts completely.",
           timerSeconds: 30,
           tip: "If butter starts turning dark brown, reduce heat to LOW immediately.",
           image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
@@ -423,9 +454,9 @@ const initialData = {
         {
           stepNumber: 3,
           title: "Cook the Toast & Eggs",
-          description: "Pour whisked egg mixture into the pan. Dip one bread slice, flip it over so both sides are coated in egg, and do the same for second slice. Cook 2 mins.",
+          description: "Pour whisked egg mixture into pan. Dip one bread slice, flip over so both sides are coated, and do the same for second slice. Cook 2 mins.",
           timerSeconds: 120,
-          tip: "Easy phrasing: Cook onions/eggs until soft, don't rush high heat!",
+          tip: "Cook eggs until soft, don't rush high heat!",
           image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
           videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
         }
@@ -441,6 +472,7 @@ const initialData = {
       cookTimeMinutes: 0,
       servings: 1,
       calories: 290,
+      costPerServing: 2.1,
       isVeg: true,
       isNoStove: true,
       image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
@@ -454,12 +486,13 @@ const initialData = {
         { name: "Green Chutney or Mayonnaise", quantity: "1 tbsp", substitute: "Hummus" },
         { name: "Chaat Masala", quantity: "1/2 tsp", substitute: "Lemon juice & salt" }
       ],
+      toolsNeeded: ["Cutting Board", "Knife", "Plate"],
       safetyTips: ["Ensure vegetables are washed well with clean water before slicing."],
       steps: [
         {
           stepNumber: 1,
           title: "Spread Sauce",
-          description: "Lay the tortilla flat on a clean cutting board or plate. Spread 1 tbsp green chutney or mayo evenly in center.",
+          description: "Lay tortilla flat on a clean plate. Spread 1 tbsp green chutney or mayo evenly in center.",
           timerSeconds: 20,
           tip: "Leave 1 inch around edge clear so it folds neatly without spilling.",
           image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
@@ -468,9 +501,9 @@ const initialData = {
         {
           stepNumber: 2,
           title: "Add Filling & Roll",
-          description: "Pile 1/2 cup grated paneer, sliced capsicum, and tomatoes along the middle line. Fold and roll tight!",
+          description: "Pile 1/2 cup grated paneer, sliced capsicum, and tomatoes along the middle line. Fold bottom up and roll tight!",
           timerSeconds: 40,
-          tip: "Do not overfill or the wrap might break while rolling.",
+          tip: "Do not overfill or wrap might break while rolling.",
           image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
           videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
         }
@@ -486,6 +519,7 @@ const initialData = {
       cookTimeMinutes: 1,
       servings: 1,
       calories: 240,
+      costPerServing: 1.0,
       isVeg: true,
       isNoStove: false,
       image: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80",
@@ -499,6 +533,7 @@ const initialData = {
         { name: "Milk", quantity: "3 tbsp", substitute: "Almond milk or Soy milk" },
         { name: "Melted Butter / Oil", quantity: "1 tbsp", substitute: "Coconut oil" }
       ],
+      toolsNeeded: ["Microwave-Safe Coffee Mug", "Fork"],
       safetyTips: ["Mug will be hot when removing from microwave. Use a cloth or glove!"],
       steps: [
         {
@@ -514,7 +549,6 @@ const initialData = {
     }
   ],
 
-  // ---------------- LEARNING & BASICS ----------------
   learnBasics: [
     {
       id: "b1",
@@ -561,7 +595,6 @@ const initialData = {
     }
   ],
 
-  // ---------------- GYM & FITNESS MEAL PLANS ----------------
   mealPlans: [
     {
       id: "mp_gym_muscle",
@@ -583,15 +616,6 @@ const initialData = {
         { day: "Monday", breakfast: "Fresh Mint Cucumber Detox Juice + 2 Boiled Eggs", lunch: "Avocado & Cucumber Toast", dinner: "5-Minute Protein Chana Chaat Bowl" },
         { day: "Tuesday", breakfast: "Icy Watermelon Lime Refresher + Greek Yogurt", lunch: "Chana Chaat Bowl", dinner: "Savory Masala Oats" },
         { day: "Wednesday", breakfast: "Fresh Mint Cucumber Detox Juice", lunch: "High-Protein Boiled Egg Salad", dinner: "No-Cook Veggie Paneer Roll" }
-      ]
-    },
-    {
-      id: "mp_student",
-      title: "🎓 Budget Student 5-Day Weekly Plan",
-      description: "Quick, ultra-cheap meals requiring under 10 minutes preparation.",
-      schedule: [
-        { day: "Monday", breakfast: "5-Minute Easy Egg Toast", lunch: "No-Cook Veggie Paneer Roll", dinner: "Savory Masala Oats" },
-        { day: "Tuesday", breakfast: "Royal Mango Lassi Shake", lunch: "Chana Chaat Bowl", dinner: "Vegetable Maggi Noodles" }
       ]
     }
   ],
@@ -658,7 +682,7 @@ const initialData = {
 
 export function initDB() {
   fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
-  console.log("Database updated successfully with Juices, Milkshakes, Gym Meals & Video Links!");
+  console.log("Database initialized & connected successfully!");
 }
 
 export function readDB() {

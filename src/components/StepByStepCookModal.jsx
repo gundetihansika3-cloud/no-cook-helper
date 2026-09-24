@@ -9,11 +9,28 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
   const [userNote, setUserNote] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [autoVoiceGuide, setAutoVoiceGuide] = useState(true);
 
   const videoRef = useRef(null);
 
   const steps = recipe.steps || [];
   const currentStep = steps[currentStepIndex] || {};
+
+  // Hands-free Voice Guided Steps (Text-to-Speech)
+  const speakStepText = (text) => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  useEffect(() => {
+    if (currentStep.title && autoVoiceGuide) {
+      speakStepText(`Step ${currentStepIndex + 1}: ${currentStep.title}. ${currentStep.description}`);
+    }
+  }, [currentStepIndex, recipe, autoVoiceGuide]);
 
   // Handle Step Timer
   useEffect(() => {
@@ -34,6 +51,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
       }, 1000);
     } else if (timerLeft === 0 && timerRunning) {
       setTimerRunning(false);
+      speakStepText("Timer finished!");
       if (typeof window !== 'undefined' && window.navigator?.vibrate) {
         window.navigator.vibrate([200, 100, 200]);
       }
@@ -59,6 +77,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
       setCurrentStepIndex(prev => prev + 1);
     } else {
       setIsCompleted(true);
+      speakStepText(`Congratulations! You have completed cooking ${recipe.title}!`);
     }
   };
 
@@ -89,12 +108,21 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="glass-panel modal-content" onClick={e => e.stopPropagation()}>
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.85rem' }}>
           <div>
-            <span className="badge badge-veg" style={{ fontSize: '0.8rem', fontWeight: '700' }}>
-              🎥 AI Step-by-Step Cooking & Video Demo
-            </span>
-            <h2 style={{ fontSize: '1.4rem', marginTop: '0.2rem' }}>{recipe.title}</h2>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <span className="badge badge-veg" style={{ fontSize: '0.78rem', fontWeight: '700' }}>
+                🎥 Visual & Voice Guided Mode
+              </span>
+              <button 
+                className="badge" 
+                style={{ background: autoVoiceGuide ? 'rgba(129, 178, 154, 0.25)' : 'rgba(0,0,0,0.06)', color: autoVoiceGuide ? '#2b7a58' : 'var(--text-muted)', cursor: 'pointer' }}
+                onClick={() => setAutoVoiceGuide(!autoVoiceGuide)}
+              >
+                {autoVoiceGuide ? '🎙️ Voice Guide ON' : '🔇 Voice Guide Off'}
+              </button>
+            </div>
+            <h2 style={{ fontSize: '1.35rem', marginTop: '0.2rem' }}>{recipe.title}</h2>
           </div>
           <button className="btn-secondary" style={{ padding: '0.3rem 0.75rem', borderRadius: '50%' }} onClick={onClose}>
             ✕
@@ -104,7 +132,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
         {!isCompleted ? (
           <div>
             {/* Step Progress Bar */}
-            <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '99px', height: '8px', marginBottom: '1.5rem', overflow: 'hidden' }}>
+            <div style={{ background: 'var(--accent-cream)', borderRadius: '99px', height: '8px', marginBottom: '1.25rem', overflow: 'hidden' }}>
               <div 
                 style={{ 
                   width: `${((currentStepIndex + 1) / steps.length) * 100}%`, 
@@ -119,9 +147,13 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
               <span className="badge badge-time" style={{ fontSize: '0.85rem' }}>
                 Step {currentStepIndex + 1} of {steps.length}
               </span>
-              <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                {currentStep.title}
-              </span>
+              <button 
+                className="btn-secondary" 
+                style={{ padding: '0.25rem 0.75rem', fontSize: '0.8rem' }}
+                onClick={() => speakStepText(`Step ${currentStepIndex + 1}: ${currentStep.title}. ${currentStep.description}`)}
+              >
+                🔊 Read Out Loud
+              </button>
             </div>
 
             {/* Step Content: Video Player & Instructions */}
@@ -139,9 +171,9 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
                     playsInline
                     style={{ width: '100%', height: '240px', objectFit: 'cover' }}
                   />
-                  <div style={{ position: 'absolute', bottom: '10px', left: '10px', right: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.6)', padding: '0.4rem 0.8rem', borderRadius: 'var(--radius-pill)', backdropFilter: 'blur(8px)' }}>
+                  <div style={{ position: 'absolute', bottom: '10px', left: '10px', right: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.65)', padding: '0.4rem 0.8rem', borderRadius: 'var(--radius-pill)', backdropFilter: 'blur(8px)' }}>
                     <span style={{ fontSize: '0.75rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                      🎬 AI Preparation Video Demo
+                      🎬 AI Step Video Demo
                     </span>
                     <button onClick={toggleVideoPlay} style={{ background: 'transparent', color: '#fff', border: 'none', fontSize: '0.85rem', cursor: 'pointer' }}>
                       {isVideoPlaying ? '⏸️ Pause' : '▶️ Play'}
@@ -152,7 +184,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
                 {/* Step Timer */}
                 {currentStep.timerSeconds > 0 && (
                   <div className="timer-box" style={{ marginTop: '1rem' }}>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>⏱️ Step Recommended Timer</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>⏱️ Recommended Timer</div>
                     <div className="timer-display">{formatTime(timerLeft)}</div>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem' }}>
                       <button 
@@ -178,24 +210,31 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem', color: 'var(--primary)' }}>
                   {currentStep.title}
                 </h3>
-                <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '1rem', color: 'var(--text-main)' }}>
+                <p style={{ fontSize: '0.98rem', lineHeight: '1.6', marginBottom: '1rem', color: 'var(--text-main)' }}>
                   {currentStep.description}
                 </p>
 
-                {/* Easy Phrasing Beginner Tip */}
+                {/* Beginner Tip Alert */}
                 {currentStep.tip && (
-                  <div style={{ background: 'rgba(245, 158, 11, 0.12)', borderLeft: '4px solid #f59e0b', padding: '0.85rem 1rem', borderRadius: '6px', margin: '1rem 0' }}>
-                    <div style={{ fontWeight: '700', color: '#f59e0b', fontSize: '0.85rem', marginBottom: '0.2rem' }}>
+                  <div style={{ background: 'rgba(217, 119, 6, 0.1)', borderLeft: '4px solid #d97706', padding: '0.85rem 1rem', borderRadius: '8px', margin: '1rem 0' }}>
+                    <div style={{ fontWeight: '700', color: '#d97706', fontSize: '0.85rem', marginBottom: '0.2rem' }}>
                       💡 Beginner Tip (Easy Phrasing)
                     </div>
                     <div style={{ fontSize: '0.88rem', color: 'var(--text-main)' }}>{currentStep.tip}</div>
                   </div>
                 )}
 
+                {/* Tools Needed Display */}
+                {recipe.toolsNeeded && (
+                  <div style={{ margin: '0.85rem 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                    🛠️ <strong>Tools Needed:</strong> {recipe.toolsNeeded.join(', ')}
+                  </div>
+                )}
+
                 {/* Safety Warning */}
                 {currentStepIndex === 0 && recipe.safetyTips && recipe.safetyTips.length > 0 && (
-                  <div style={{ background: 'rgba(239, 68, 68, 0.12)', borderLeft: '4px solid #ef4444', padding: '0.85rem 1rem', borderRadius: '6px', margin: '1rem 0' }}>
-                    <div style={{ fontWeight: '700', color: '#ef4444', fontSize: '0.85rem', marginBottom: '0.2rem' }}>
+                  <div style={{ background: 'rgba(230, 57, 70, 0.1)', borderLeft: '4px solid #e63946', padding: '0.85rem 1rem', borderRadius: '8px', margin: '1rem 0' }}>
+                    <div style={{ fontWeight: '700', color: '#e63946', fontSize: '0.85rem', marginBottom: '0.2rem' }}>
                       ⚠️ Kitchen Safety Note
                     </div>
                     <ul style={{ paddingLeft: '1.2rem', fontSize: '0.85rem' }}>
@@ -206,7 +245,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
 
                 {/* Ingredients Check-list on Step 1 */}
                 {currentStepIndex === 0 && (
-                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', marginTop: '1rem' }}>
+                  <div style={{ background: 'var(--accent-cream)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', marginTop: '1rem' }}>
                     <div style={{ fontWeight: '600', marginBottom: '0.5rem', fontSize: '0.9rem' }}>🥦 Ingredients Checklist:</div>
                     {recipe.ingredients.map((ing, idx) => (
                       <label key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem', cursor: 'pointer', fontSize: '0.88rem' }}>
@@ -250,7 +289,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
               Awesome! You Prepared {recipe.title}!
             </h2>
             <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-              You've completed every step with AI video guidance. Rate your preparation below:
+              You've completed every step with AI video & voice guidance. Rate your preparation below:
             </p>
 
             <div style={{ marginBottom: '1.5rem' }}>
@@ -267,7 +306,7 @@ export default function StepByStepCookModal({ recipe, onClose, onFinishCook }) {
             <div style={{ maxWidth: '500px', margin: '0 auto 1.5rem auto' }}>
               <textarea 
                 className="glass-panel" 
-                placeholder="Add a private note (e.g. Added extra honey, turned out amazing!)..." 
+                placeholder="Add a private note (e.g. Turned out warm & delicious!)..." 
                 rows="3"
                 value={userNote}
                 onChange={e => setUserNote(e.target.value)}

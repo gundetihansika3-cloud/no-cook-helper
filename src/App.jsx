@@ -12,6 +12,7 @@ import TipsTricksPage from './pages/TipsTricksPage';
 import FavoritesPage from './pages/FavoritesPage';
 import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
+import SmartToolsPage from './pages/SmartToolsPage';
 import StepByStepCookModal from './components/StepByStepCookModal';
 import AIAssistantModal from './components/AIAssistantModal';
 import { fetchRecipes, toggleFavorite, fetchFavorites, saveCookHistory } from './utils/api';
@@ -20,7 +21,8 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [recipes, setRecipes] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [user, setUser] = useState({ name: 'Beginner Chef', email: 'demo@nocook.com', dietPreference: 'Vegetarian' });
+  const [user, setUser] = useState({ name: 'Cozy Family Chef', email: 'demo@nocook.com', dietPreference: 'High Protein' });
+  const [currentLang, setCurrentLang] = useState('en');
 
   // Selected recipe for detail view or step cooking
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -31,7 +33,6 @@ export default function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
-    // Load initial data from API server
     fetchRecipes().then(data => setRecipes(data)).catch(err => console.error(err));
     fetchFavorites().then(data => setFavorites(data.map(r => r.id))).catch(err => console.error(err));
   }, []);
@@ -75,6 +76,8 @@ export default function App() {
         setActiveTab={(tab) => { setSelectedRecipe(null); setActiveTab(tab); }}
         user={user}
         onOpenAI={() => setShowAIAssistant(true)}
+        currentLang={currentLang}
+        setCurrentLang={setCurrentLang}
       />
 
       <main className="app-container" style={{ flexGrow: 1 }}>
@@ -109,6 +112,7 @@ export default function App() {
           />
         )}
 
+        {activeTab === 'smart-tools' && <SmartToolsPage />}
         {activeTab === 'learn' && <LearnBasicsPage />}
         {activeTab === 'ingredients' && <IngredientsGuidePage />}
         {activeTab === 'tools' && <KitchenToolsPage />}
@@ -135,7 +139,7 @@ export default function App() {
 
       <Footer setActiveTab={(tab) => { setSelectedRecipe(null); setActiveTab(tab); }} />
 
-      {/* Interactive Step-by-Step Cooking Modal */}
+      {/* Visual & Voice Step-by-Step Cooking Modal */}
       {cookingRecipe && (
         <StepByStepCookModal 
           recipe={cookingRecipe}
@@ -144,7 +148,7 @@ export default function App() {
         />
       )}
 
-      {/* Floating AI Assistant Modal */}
+      {/* Cozy AI Voice Assistant Modal */}
       {showAIAssistant && (
         <AIAssistantModal 
           onClose={() => setShowAIAssistant(false)}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Navbar({ activeTab, setActiveTab, user, onOpenAI }) {
+export default function Navbar({ activeTab, setActiveTab, user, onOpenAI, currentLang, setCurrentLang }) {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
@@ -29,11 +29,10 @@ export default function Navbar({ activeTab, setActiveTab, user, onOpenAI }) {
   const navItems = [
     { id: 'home', label: 'Home', icon: '🏠' },
     { id: 'recipes', label: 'Recipes', icon: '📖' },
+    { id: 'smart-tools', label: 'Smart Tools', icon: '🧰' },
     { id: 'learn', label: 'Learn Basics', icon: '🎓' },
     { id: 'ingredients', label: 'Ingredients', icon: '🥦' },
-    { id: 'tools', label: 'Tools', icon: '🛠️' },
     { id: 'mealplans', label: 'Gym & Meal Plans', icon: '💪' },
-    { id: 'tips', label: 'Tips & Hacks', icon: '💡' },
     { id: 'favorites', label: 'Favorites', icon: '❤️' }
   ];
 
@@ -58,10 +57,23 @@ export default function Navbar({ activeTab, setActiveTab, user, onOpenAI }) {
             </ul>
           </nav>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            {/* Multi-Language Selector */}
+            <select 
+              className="glass-panel"
+              value={currentLang}
+              onChange={e => setCurrentLang(e.target.value)}
+              style={{ padding: '0.35rem 0.6rem', fontSize: '0.8rem', borderRadius: 'var(--radius-pill)', color: 'var(--text-main)', background: 'var(--bg-card)' }}
+            >
+              <option value="en">🌐 EN</option>
+              <option value="hi">🌐 HI (हिंदी)</option>
+              <option value="es">🌐 ES</option>
+              <option value="fr">🌐 FR</option>
+            </select>
+
             <button 
               className="btn-primary" 
-              style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', background: 'linear-gradient(135deg, #f59e0b, #ef4444)' }}
+              style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', background: 'linear-gradient(135deg, #d97706, #e07a5f)' }}
               onClick={handleInstallPWA}
               title="Install native phone app"
             >
@@ -70,15 +82,15 @@ export default function Navbar({ activeTab, setActiveTab, user, onOpenAI }) {
 
             <button 
               className="btn-primary" 
-              style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', background: 'linear-gradient(135deg, #8b5cf6, #6366f1)' }}
+              style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', background: 'linear-gradient(135deg, #e07a5f, #81b29a)' }}
               onClick={onOpenAI}
             >
-              🤖 AI Help
+              🎙️ AI Voice
             </button>
 
             <button 
               className="btn-secondary" 
-              style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}
+              style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
               onClick={() => setActiveTab('profile')}
             >
               👤 {user ? user.name.split(' ')[0] : 'Login'}
@@ -87,7 +99,7 @@ export default function Navbar({ activeTab, setActiveTab, user, onOpenAI }) {
         </div>
       </header>
 
-      {/* Mobile Phone App Bottom Navigation Bar */}
+      {/* Mobile Bottom Navigation Bar */}
       <div className="mobile-bottom-nav">
         <button 
           className={`mobile-nav-item ${activeTab === 'home' ? 'active' : ''}`}
@@ -104,10 +116,10 @@ export default function Navbar({ activeTab, setActiveTab, user, onOpenAI }) {
         </button>
 
         <button 
-          className={`mobile-nav-item ${activeTab === 'mealplans' ? 'active' : ''}`}
-          onClick={() => setActiveTab('mealplans')}
+          className={`mobile-nav-item ${activeTab === 'smart-tools' ? 'active' : ''}`}
+          onClick={() => setActiveTab('smart-tools')}
         >
-          <span>💪</span> Gym Plans
+          <span>🧰</span> Tools
         </button>
 
         <button 

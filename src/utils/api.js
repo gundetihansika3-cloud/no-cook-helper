@@ -54,6 +54,49 @@ export async function fetchTips() {
   return res.json();
 }
 
+// SMART TOOLS API
+export async function fetchShoppingList() {
+  const res = await fetch(`${API_BASE}/tools/shopping`);
+  return res.json();
+}
+
+export async function addShoppingItem(item, quantity) {
+  const res = await fetch(`${API_BASE}/tools/shopping`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ item, quantity })
+  });
+  return res.json();
+}
+
+export async function fetchPantryItems() {
+  const res = await fetch(`${API_BASE}/tools/pantry`);
+  return res.json();
+}
+
+export async function addPantryItem(name, category, status) {
+  const res = await fetch(`${API_BASE}/tools/pantry`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, category, status })
+  });
+  return res.json();
+}
+
+export async function fetchCommunityPosts() {
+  const res = await fetch(`${API_BASE}/tools/community`);
+  return res.json();
+}
+
+export async function addCommunityPost(author, title, content) {
+  const res = await fetch(`${API_BASE}/tools/community`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ author, title, content })
+  });
+  return res.json();
+}
+
 export async function fetchFavorites() {
   const res = await fetch(`${API_BASE}/favorites`);
   return res.json();

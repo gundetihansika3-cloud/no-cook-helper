@@ -11,7 +11,7 @@ const JWT_SECRET = 'nocookhelper_secret_key_2026';
 app.use(cors());
 app.use(express.json());
 
-// Initialize Database
+// Initialize & Connect Database
 initDB();
 
 // Middleware: Authenticate JWT Token
@@ -48,7 +48,7 @@ app.post('/api/auth/register', (req, res) => {
     id: 'u_' + Date.now(),
     name,
     email,
-    password, // In real production use bcrypt; plain for local demo
+    password,
     dietPreference: dietPreference || 'Vegetarian',
     cookingSkill: 'Beginner',
     createdAt: new Date().toISOString()
@@ -106,7 +106,7 @@ app.get('/api/recipes', (req, res) => {
   }
   if (maxTime) {
     const timeLimit = parseInt(maxTime, 10);
-    recipes = recipes.filter(r => (r.prepTimeMinutes + r.cookTimeMinutes) <= timeLimit);
+    recipes = recipes.filter(r => ((r.prepTimeMinutes || 0) + (r.cookTimeMinutes || 0)) <= timeLimit);
   }
 
   res.json(recipes);
@@ -121,7 +121,7 @@ app.get('/api/recipes/:id', (req, res) => {
 
 // "What Can I Make With This?" Ingredient Recommender
 app.post('/api/recipes/recommend', (req, res) => {
-  const { ingredients } = req.body; // array of strings e.g. ["Bread", "Egg"]
+  const { ingredients } = req.body;
   if (!ingredients || !Array.isArray(ingredients) || ingredients.length === 0) {
     return res.status(400).json({ error: 'Ingredients array required' });
   }
@@ -155,18 +155,17 @@ app.post('/api/ai/chat', (req, res) => {
   const msgLower = message.toLowerCase();
   const db = readDB();
 
-  // Check custom database knowledge base
   const match = db.aiKnowledge.find(k => k.keywords.some(kw => msgLower.includes(kw)));
 
   let answer = "";
   if (match) {
     answer = match.answer;
   } else if (msgLower.includes("make") || msgLower.includes("cook")) {
-    answer = "Based on your prompt, I recommend checking our 5-Minute Easy Egg Toast or No-Cook Veggie Paneer Roll! You can also use our 'What can I make with this?' ingredient helper tool above to select available ingredients in your fridge.";
+    answer = "I recommend our Fresh Mint Detox Juice, 35g Protein Chocolate Shake, or Avocado Toast! Use our 'What can I make with?' tool to select what's in your fridge.";
   } else if (msgLower.includes("beginner") || msgLower.includes("start")) {
     answer = "As a beginner, start with stove-free wraps or 5-minute boiled egg recipes! Keep your heat on Low to Medium, use non-stick pans, and remember to measure water 1:2 when boiling rice.";
   } else {
-    answer = `Great cooking question! Here's a tip: when cooking as a beginner, always prepare your ingredients (mis en place) before turning on the flame. You can easily substitute butter with oil, or cow milk with oat/almond milk in almost all simple recipes!`;
+    answer = `Great cooking question! Always prep your ingredients before turning on the stove. You can substitute butter with oil, or cow milk with oat/almond milk in almost all simple recipes!`;
   }
 
   res.json({
@@ -199,6 +198,69 @@ app.get('/api/meal-plans', (req, res) => {
 app.get('/api/tips', (req, res) => {
   const db = readDB();
   res.json(db.tipsAndTricks);
+});
+
+// ================= SMART TOOLS API (SECTION 7 IN DIAGRAM) =================
+app.get('/api/tools/shopping', (req, res) => {
+  const db = readDB();
+  res.json(db.shoppingList || []);
+});
+
+app.post('/api/tools/shopping', (req, res) => {
+  const { item, quantity } = req.body;
+  const db = readDB();
+  const newItem = {
+    id: 's_' + Date.now(),
+    item,
+    quantity: quantity || '1 unit',
+    checked: false
+  };
+  db.shoppingList = db.shoppingList || [];
+  db.shoppingList.unshift(newItem);
+  writeDB(db);
+  res.json(db.shoppingList);
+});
+
+app.get('/api/tools/pantry', (req, res) => {
+  const db = readDB();
+  res.json(db.pantryItems || []);
+});
+
+app.post('/api/tools/pantry', (req, res) => {
+  const { name, category, status } = req.body;
+  const db = readDB();
+  const newItem = {
+    id: 'p_' + Date.now(),
+    name,
+    category: category || 'Pantry',
+    status: status || 'In Stock'
+  };
+  db.pantryItems = db.pantryItems || [];
+  db.pantryItems.unshift(newItem);
+  writeDB(db);
+  res.json(db.pantryItems);
+});
+
+app.get('/api/tools/community', (req, res) => {
+  const db = readDB();
+  res.json(db.communityPosts || []);
+});
+
+app.post('/api/tools/community', (req, res) => {
+  const { author, title, content } = req.body;
+  const db = readDB();
+  const newPost = {
+    id: 'c_' + Date.now(),
+    author: author || 'Cozy Chef',
+    title,
+    content,
+    likes: 1,
+    date: 'Just now'
+  };
+  db.communityPosts = db.communityPosts || [];
+  db.communityPosts.unshift(newPost);
+  writeDB(db);
+  res.json(db.communityPosts);
 });
 
 // ================= FAVORITES, HISTORY & NOTES =================
@@ -250,26 +312,7 @@ app.post('/api/history', (req, res) => {
   res.json({ success: true, history: db.history });
 });
 
-app.get('/api/notes', (req, res) => {
-  const db = readDB();
-  res.json(db.notes);
-});
-
-app.post('/api/notes', (req, res) => {
-  const { recipeId, text } = req.body;
-  const db = readDB();
-  const newNote = {
-    id: 'n_' + Date.now(),
-    recipeId,
-    text,
-    date: new Date().toISOString()
-  };
-  db.notes.unshift(newNote);
-  writeDB(db);
-  res.json({ success: true, notes: db.notes });
-});
-
-// Serve frontend static build if available
+// Serve static React build files
 const clientBuildPath = path.join(process.cwd(), 'dist');
 app.use(express.static(clientBuildPath));
 
@@ -277,7 +320,7 @@ app.get('*', (req, res) => {
   if (!req.path.startsWith('/api')) {
     res.sendFile(path.join(clientBuildPath, 'index.html'), err => {
       if (err) {
-        res.status(200).send("No Cook Helper API Server is running on port " + PORT + ". React client dev server runs via Vite.");
+        res.status(200).send("No Cook Helper API Server is running on port " + PORT + ".");
       }
     });
   }
