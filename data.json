@@ -1,0 +1,1008 @@
+{
+  "users": [
+    {
+      "id": "u_demo",
+      "name": "Gym & Fitness Chef",
+      "email": "demo@nocook.com",
+      "password": "password123",
+      "dietPreference": "High Protein",
+      "cookingSkill": "Beginner",
+      "createdAt": "2026-09-24T14:10:27.074Z"
+    }
+  ],
+  "favorites": [
+    "r_gym_protein_shake",
+    "r_avocado_toast",
+    "r_paneer_wrap"
+  ],
+  "history": [
+    {
+      "recipeId": "r_gym_protein_shake",
+      "completedAt": "2026-09-23T14:10:27.075Z",
+      "rating": 5,
+      "notes": "Awesome post-workout shake! Made in 3 minutes."
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "recipeId": "r_gym_protein_shake",
+      "text": "Add an extra tbsp of peanut butter for 8g extra protein!",
+      "date": "2026-09-24T14:10:27.075Z"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "r_detox_green_juice",
+      "title": "Fresh Mint Cucumber Detox Juice",
+      "category": "Juices & Coolers",
+      "cuisine": "Healthy",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 0,
+      "servings": 1,
+      "calories": 90,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
+      "description": "Hydrating, fat-burning green detox juice packed with cucumber, fresh mint, lemon, and ginger. Zero cooking required!",
+      "tags": [
+        "Juice",
+        "Detox",
+        "No Stove",
+        "Weight Loss",
+        "Hydration"
+      ],
+      "ingredients": [
+        {
+          "name": "Cucumber (Chopped)",
+          "quantity": "1 medium",
+          "substitute": "Celery sticks"
+        },
+        {
+          "name": "Fresh Mint Leaves",
+          "quantity": "10-12 leaves",
+          "substitute": "Coriander leaves"
+        },
+        {
+          "name": "Lemon Juice",
+          "quantity": "1 tbsp",
+          "substitute": "Lime juice"
+        },
+        {
+          "name": "Ginger",
+          "quantity": "1/2 inch piece",
+          "substitute": "Dry ginger powder"
+        },
+        {
+          "name": "Chilled Water",
+          "quantity": "1 cup (250ml)",
+          "substitute": "Coconut water"
+        },
+        {
+          "name": "Black Salt / Honey",
+          "quantity": "Pinch",
+          "substitute": "Stevia"
+        }
+      ],
+      "safetyTips": [
+        "Wash mint leaves thoroughly under running water to remove any dirt."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Prep Ingredients",
+          "description": "Peel cucumber (optional) and chop into coarse cubes. Wash fresh mint leaves and peel 1/2 inch ginger.",
+          "timerSeconds": 60,
+          "tip": "Keeping ingredients in fridge beforehand gives an icy refreshing juice!",
+          "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Blend Until Smooth",
+          "description": "Add cucumber, mint, ginger, 1 cup water, and lemon juice into your blender jar. Blend on HIGH for 45 seconds.",
+          "timerSeconds": 45,
+          "tip": "No blender? Use a hand immersion stick blender directly in a big tall cup!",
+          "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Strain & Serve",
+          "description": "Pour through a mesh strainer into a glass (or drink unstrained for extra fiber!). Add a pinch of black salt and ice cubes.",
+          "timerSeconds": 30,
+          "tip": "Drink immediately on an empty stomach for maximum digestion benefits.",
+          "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_watermelon_juice",
+      "title": "Icy Watermelon Lime Refresher",
+      "category": "Juices & Coolers",
+      "cuisine": "Tropical",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 0,
+      "servings": 2,
+      "calories": 110,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=800&q=80",
+      "description": "Naturally sweet, seedless watermelon blitzed with fresh lime juice and ice. Super hydrating post-workout juice!",
+      "tags": [
+        "Juice",
+        "Summer Special",
+        "No Stove",
+        "Low Calorie"
+      ],
+      "ingredients": [
+        {
+          "name": "Watermelon Cubes",
+          "quantity": "3 cups",
+          "substitute": "Muskmelon or Pineapple"
+        },
+        {
+          "name": "Lime Juice",
+          "quantity": "1 tbsp",
+          "substitute": "Lemon"
+        },
+        {
+          "name": "Mint Leaves",
+          "quantity": "5 leaves",
+          "substitute": "Basil"
+        },
+        {
+          "name": "Ice Cubes",
+          "quantity": "1/2 cup",
+          "substitute": "Chilled water"
+        }
+      ],
+      "safetyTips": [
+        "Be careful when slicing large watermelons; keep cutting board stable."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Deseed & Cube Watermelon",
+          "description": "Chop watermelon into medium cubes. Remove large seeds with a fork.",
+          "timerSeconds": 90,
+          "tip": "Chilling watermelon cubes in freezer for 20 mins makes an instant slushie!",
+          "image": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Blend & Pour",
+          "description": "Add watermelon cubes, lime juice, mint leaves, and ice. Pulse 3 times until smooth. Pour into tall glasses!",
+          "timerSeconds": 30,
+          "tip": "Don't overblend or seeds turn bitter.",
+          "image": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_gym_protein_shake",
+      "title": "35g Protein Chocolate Peanut Butter Shake",
+      "category": "Milkshakes & Smoothies",
+      "cuisine": "Gym & Fitness",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 0,
+      "servings": 1,
+      "calories": 420,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+      "description": "Ultimate muscle building post-workout protein milkshake packed with banana, oats, peanut butter, and cocoa/whey.",
+      "tags": [
+        "Gym Protein",
+        "Milkshake",
+        "High Protein",
+        "Muscle Gain",
+        "No Stove"
+      ],
+      "ingredients": [
+        {
+          "name": "Milk",
+          "quantity": "1.5 cups (350ml)",
+          "substitute": "Oat Milk or Almond Milk"
+        },
+        {
+          "name": "Ripe Banana",
+          "quantity": "1 large",
+          "substitute": "1/2 cup Frozen Mango"
+        },
+        {
+          "name": "Peanut Butter",
+          "quantity": "2 tbsp",
+          "substitute": "Almond butter or Cashew butter"
+        },
+        {
+          "name": "Rolled Oats",
+          "quantity": "3 tbsp",
+          "substitute": "Chia seeds"
+        },
+        {
+          "name": "Protein Powder / Cocoa",
+          "quantity": "1 scoop (30g)",
+          "substitute": "2 tbsp Cocoa powder + 1 tbsp Honey"
+        }
+      ],
+      "safetyTips": [
+        "Ensure blender lid is securely closed before turning on machine."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Load Blender Base",
+          "description": "Pour 1.5 cups cold milk into blender first (liquid at bottom prevents blade sticking). Add sliced banana, 3 tbsp oats, and 2 tbsp peanut butter.",
+          "timerSeconds": 40,
+          "tip": "Freezing sliced bananas in ziplock bags creates thick milkshake creaminess without ice!",
+          "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Add Protein Powder & Blend",
+          "description": "Add 1 scoop chocolate protein powder (or cocoa + honey). Blend on high speed for 60 seconds until creamy and frothy.",
+          "timerSeconds": 60,
+          "tip": "If shake is too thick, splash 2 tbsp extra milk!",
+          "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnTheLakeside.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_mango_lassi_shake",
+      "title": "Creamy Royal Mango Lassi Shake",
+      "category": "Milkshakes & Smoothies",
+      "cuisine": "Indian / Global",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 0,
+      "servings": 2,
+      "calories": 230,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+      "description": "Traditional probiotic mango yoghurt shake infused with cardamom and saffron. Refreshing and digestive!",
+      "tags": [
+        "Milkshake",
+        "Probiotic",
+        "No Stove",
+        "Dessert"
+      ],
+      "ingredients": [
+        {
+          "name": "Mango Pulp / Chilled Mango Cubes",
+          "quantity": "1 cup",
+          "substitute": "Peach or Strawberry"
+        },
+        {
+          "name": "Thick Curd / Greek Yogurt",
+          "quantity": "1 cup",
+          "substitute": "Coconut yogurt"
+        },
+        {
+          "name": "Chilled Milk",
+          "quantity": "1/2 cup",
+          "substitute": "Water"
+        },
+        {
+          "name": "Honey or Sugar",
+          "quantity": "2 tbsp",
+          "substitute": "Jaggery powder"
+        },
+        {
+          "name": "Cardamom Powder (Elaichi)",
+          "quantity": "1/4 tsp",
+          "substitute": "Vanilla extract"
+        }
+      ],
+      "safetyTips": [
+        "Use fresh yogurt so lassi tastes sweet and creamy, not sour."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Combine Ingredients",
+          "description": "Add 1 cup mango pulp, 1 cup thick curd, 1/2 cup cold milk, 2 tbsp honey, and pinch of cardamom into blender jar.",
+          "timerSeconds": 30,
+          "tip": "Greek yogurt yields ultra-thick restaurant-style lassi!",
+          "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Blend 45 Seconds",
+          "description": "Blend on medium-high speed until completely smooth. Top with chopped pistachios or almonds!",
+          "timerSeconds": 45,
+          "tip": "Serve ice cold in tall copper or glass tumblers.",
+          "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_paneer_scramble_gym",
+      "title": "28g Protein Paneer & Egg Bhurji / Scramble",
+      "category": "Gym Protein Food",
+      "cuisine": "Indian / Fitness",
+      "difficulty": "Beginner",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 6,
+      "servings": 1,
+      "calories": 340,
+      "isVeg": false,
+      "isNoStove": false,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+      "description": "High protein muscle builder combining crumbled paneer, eggs, onions, tomatoes, and Indian spices. Ready in 10 mins!",
+      "tags": [
+        "Gym Protein",
+        "High Protein",
+        "Breakfast",
+        "Muscle Gain"
+      ],
+      "ingredients": [
+        {
+          "name": "Paneer (Crumbled)",
+          "quantity": "100g",
+          "substitute": "Firm Tofu (for veg option)"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2 whole",
+          "substitute": "Extra 100g Paneer"
+        },
+        {
+          "name": "Onion & Tomato (Chopped)",
+          "quantity": "1/4 cup each",
+          "substitute": "Capsicum"
+        },
+        {
+          "name": "Olive Oil / Ghee",
+          "quantity": "1 tsp",
+          "substitute": "Butter"
+        },
+        {
+          "name": "Turmeric, Salt, Red Chili Powder",
+          "quantity": "1/4 tsp each",
+          "substitute": "Garam masala"
+        }
+      ],
+      "safetyTips": [
+        "Stir continuously on medium heat so paneer stays soft and moist."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Sauté Veggies",
+          "description": "Heat 1 tsp olive oil in pan. Add chopped onions and tomatoes. Cook on MEDIUM flame for 2 minutes until tomatoes turn soft.",
+          "timerSeconds": 120,
+          "tip": "Add salt with veggies to draw out moisture fast!",
+          "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Add Eggs & Paneer",
+          "description": "Crack 2 eggs into pan, then add 100g crumbled paneer and spices. Stir continuously for 3-4 minutes until eggs set soft.",
+          "timerSeconds": 200,
+          "tip": "Turn off flame while scramble is slightly moist; residual heat cooks it to perfection.",
+          "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_high_protein_greek_bowl",
+      "title": "Greek Yogurt & Nut Protein Power Bowl",
+      "category": "Gym Protein Food",
+      "cuisine": "Fitness",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 0,
+      "servings": 1,
+      "calories": 310,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80",
+      "description": "25g protein breakfast/snack bowl with unsweetened Greek yogurt, almonds, walnuts, chia seeds, and honey.",
+      "tags": [
+        "Gym Protein",
+        "No Stove",
+        "Vegetarian",
+        "Fat Loss"
+      ],
+      "ingredients": [
+        {
+          "name": "Plain Greek Yogurt",
+          "quantity": "200g (1 cup)",
+          "substitute": "Hung Curd"
+        },
+        {
+          "name": "Almonds & Walnuts (Sliced)",
+          "quantity": "2 tbsp",
+          "substitute": "Pumpkin seeds"
+        },
+        {
+          "name": "Chia Seeds",
+          "quantity": "1 tbsp",
+          "substitute": "Flaxseeds"
+        },
+        {
+          "name": "Honey or Maple Syrup",
+          "quantity": "1 tbsp",
+          "substitute": "Berries"
+        }
+      ],
+      "safetyTips": [
+        "Store chia seeds in airtight jar in cool cabinet."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Assemble Bowl",
+          "description": "Scoop 200g thick Greek yogurt into serving bowl. Top with sliced almonds, walnuts, chia seeds, and drizzle honey.",
+          "timerSeconds": 30,
+          "tip": "Greek yogurt has 2x protein compared to regular curd!",
+          "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_avocado_toast",
+      "title": "Creamy Avocado & Cucumber Toast",
+      "category": "No-Stove / No-Oven",
+      "cuisine": "Global",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 0,
+      "servings": 1,
+      "calories": 240,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&q=80",
+      "description": "Mashed ripe avocado with lemon juice, red pepper flakes, and crisp cucumber slices on bread.",
+      "tags": [
+        "No Stove",
+        "No Oven",
+        "Healthy Fats",
+        "Breakfast"
+      ],
+      "ingredients": [
+        {
+          "name": "Bread Slices",
+          "quantity": "2 slices",
+          "substitute": "Rice cakes or Crackers"
+        },
+        {
+          "name": "Ripe Avocado",
+          "quantity": "1/2 medium",
+          "substitute": "Hummus or Cottage Cheese"
+        },
+        {
+          "name": "Lemon Juice",
+          "quantity": "1 tsp",
+          "substitute": "Lime"
+        },
+        {
+          "name": "Chili Flakes & Black Pepper",
+          "quantity": "1/4 tsp",
+          "substitute": "Chaat masala"
+        },
+        {
+          "name": "Cucumber Slices",
+          "quantity": "6 rounds",
+          "substitute": "Cherry tomatoes"
+        }
+      ],
+      "safetyTips": [
+        "Cut avocado carefully around pit; scoop flesh out with spoon."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Mash Avocado",
+          "description": "Scoop 1/2 avocado into bowl. Add 1 tsp lemon juice, salt, and pepper. Mash with fork until creamy.",
+          "timerSeconds": 60,
+          "tip": "Lemon juice prevents avocado from turning brown!",
+          "image": "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Spread & Top",
+          "description": "Spread creamy avocado onto bread. Top with thin cucumber slices and red chili flakes.",
+          "timerSeconds": 30,
+          "tip": "Use sourdough or multi-grain bread for extra fiber.",
+          "image": "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_chana_chaat_nocook",
+      "title": "5-Minute Protein Chana Chaat Bowl",
+      "category": "No-Stove / No-Oven",
+      "cuisine": "Indian",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 0,
+      "servings": 1,
+      "calories": 220,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+      "description": "Tangy protein snack bowl with boiled chickpeas, diced cucumber, tomatoes, lemon juice, and chaat spices. Zero cooking!",
+      "tags": [
+        "No Stove",
+        "High Fiber",
+        "Snacks",
+        "Vegan"
+      ],
+      "ingredients": [
+        {
+          "name": "Boiled Chickpeas (Canned/Pre-boiled)",
+          "quantity": "1 cup",
+          "substitute": "Sprouted Moong"
+        },
+        {
+          "name": "Finely Chopped Tomato & Onion",
+          "quantity": "1/4 cup each",
+          "substitute": "Cucumber"
+        },
+        {
+          "name": "Chaat Masala & Cumin Powder",
+          "quantity": "1/2 tsp each",
+          "substitute": "Lemon salt"
+        },
+        {
+          "name": "Lemon Juice",
+          "quantity": "1 tbsp",
+          "substitute": "Tamarind chutney"
+        },
+        {
+          "name": "Coriander Leaves",
+          "quantity": "1 tbsp",
+          "substitute": "Mint"
+        }
+      ],
+      "safetyTips": [
+        "If using canned chickpeas, rinse thoroughly under water before using."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Toss Ingredients",
+          "description": "In a mixing bowl, combine 1 cup chickpeas, chopped onions, tomatoes, chaat masala, lemon juice, and coriander. Mix well with spoon!",
+          "timerSeconds": 40,
+          "tip": "Great afternoon college snack or evening pre-workout meal!",
+          "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_egg_toast",
+      "title": "5-Minute Easy Egg Toast",
+      "category": "Breakfast",
+      "cuisine": "Continental",
+      "difficulty": "Beginner",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "calories": 220,
+      "isVeg": false,
+      "isNoStove": false,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+      "description": "A super quick, foolproof breakfast for students & busy workers. No fancy equipment needed.",
+      "tags": [
+        "Quick",
+        "High Protein",
+        "Breakfast",
+        "Under 10 mins"
+      ],
+      "ingredients": [
+        {
+          "name": "Bread slices",
+          "quantity": "2 slices",
+          "substitute": "Gluten-free bread or Tortilla"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2 large",
+          "substitute": "Mashed Paneer/Tofu for veg"
+        },
+        {
+          "name": "Butter or Oil",
+          "quantity": "1 tsp",
+          "substitute": "Ghee or Olive Oil"
+        },
+        {
+          "name": "Black Pepper",
+          "quantity": "1/4 tsp",
+          "substitute": "Chili flakes"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch",
+          "substitute": "Garlic Salt"
+        }
+      ],
+      "safetyTips": [
+        "Keep stove flame on low-medium so eggs don't burn."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Whisk the Eggs",
+          "description": "Crack 2 eggs into a small bowl. Add a pinch of salt and black pepper. Stir gently with a fork for 20 seconds until yellow and smooth.",
+          "timerSeconds": 30,
+          "tip": "Cracking the egg on a flat countertop prevents eggshells from falling into the bowl.",
+          "image": "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Warm the Pan",
+          "description": "Place your pan on the stove and turn heat to MEDIUM. Add 1 tsp of butter and wait until it melts completely (about 30 seconds).",
+          "timerSeconds": 30,
+          "tip": "If butter starts turning dark brown, reduce heat to LOW immediately.",
+          "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnTheLakeside.mp4"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Cook the Toast & Eggs",
+          "description": "Pour whisked egg mixture into the pan. Dip one bread slice, flip it over so both sides are coated in egg, and do the same for second slice. Cook 2 mins.",
+          "timerSeconds": 120,
+          "tip": "Easy phrasing: Cook onions/eggs until soft, don't rush high heat!",
+          "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_paneer_wrap",
+      "title": "No-Cook Veggie Paneer Roll",
+      "category": "Lunch",
+      "cuisine": "Indian",
+      "difficulty": "No Stove / No Oven",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 0,
+      "servings": 1,
+      "calories": 290,
+      "isVeg": true,
+      "isNoStove": true,
+      "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
+      "description": "Zero stove cooking required! Fresh grated paneer wrapped with crunchy bell peppers & green chutney.",
+      "tags": [
+        "No Stove",
+        "Vegetarian",
+        "Student Friendly",
+        "Quick"
+      ],
+      "ingredients": [
+        {
+          "name": "Tortilla / Whole Wheat Chapati",
+          "quantity": "1 large",
+          "substitute": "Lettuce wrap"
+        },
+        {
+          "name": "Grated Paneer",
+          "quantity": "1/2 cup",
+          "substitute": "Crumble Tofu or Boiled Chickpeas"
+        },
+        {
+          "name": "Capsicum (Sliced)",
+          "quantity": "2 tbsp",
+          "substitute": "Cucumber or Carrots"
+        },
+        {
+          "name": "Tomato (Sliced)",
+          "quantity": "2 tbsp",
+          "substitute": "Cherry tomatoes"
+        },
+        {
+          "name": "Green Chutney or Mayonnaise",
+          "quantity": "1 tbsp",
+          "substitute": "Hummus"
+        },
+        {
+          "name": "Chaat Masala",
+          "quantity": "1/2 tsp",
+          "substitute": "Lemon juice & salt"
+        }
+      ],
+      "safetyTips": [
+        "Ensure vegetables are washed well with clean water before slicing."
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Spread Sauce",
+          "description": "Lay the tortilla flat on a clean cutting board or plate. Spread 1 tbsp green chutney or mayo evenly in center.",
+          "timerSeconds": 20,
+          "tip": "Leave 1 inch around edge clear so it folds neatly without spilling.",
+          "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Add Filling & Roll",
+          "description": "Pile 1/2 cup grated paneer, sliced capsicum, and tomatoes along the middle line. Fold and roll tight!",
+          "timerSeconds": 40,
+          "tip": "Do not overfill or the wrap might break while rolling.",
+          "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+        }
+      ]
+    },
+    {
+      "id": "r_mug_cake",
+      "title": "2-Minute Microwave Chocolate Mug Cake",
+      "category": "Desserts",
+      "cuisine": "Western",
+      "difficulty": "No Stove",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 1,
+      "servings": 1,
+      "calories": 240,
+      "isVeg": true,
+      "isNoStove": false,
+      "image": "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80",
+      "description": "Craving dessert without baking in an oven? Soft eggless chocolate cake made directly inside a coffee mug.",
+      "tags": [
+        "Microwave Only",
+        "Dessert",
+        "Eggless",
+        "Quick",
+        "No Oven"
+      ],
+      "ingredients": [
+        {
+          "name": "All-Purpose Flour (Maida)",
+          "quantity": "3 tbsp",
+          "substitute": "Oat flour or Wheat flour"
+        },
+        {
+          "name": "Sugar",
+          "quantity": "2 tbsp",
+          "substitute": "Jaggery powder or Honey"
+        },
+        {
+          "name": "Cocoa Powder",
+          "quantity": "1 tbsp",
+          "substitute": "Melted dark chocolate"
+        },
+        {
+          "name": "Baking Powder",
+          "quantity": "1/4 tsp",
+          "substitute": "Pinch of baking soda"
+        },
+        {
+          "name": "Milk",
+          "quantity": "3 tbsp",
+          "substitute": "Almond milk or Soy milk"
+        },
+        {
+          "name": "Melted Butter / Oil",
+          "quantity": "1 tbsp",
+          "substitute": "Coconut oil"
+        }
+      ],
+      "safetyTips": [
+        "Mug will be hot when removing from microwave. Use a cloth or glove!"
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Mix & Microwave 60 Seconds",
+          "description": "Mix dry flour, sugar, cocoa, milk, and melted butter in mug until smooth. Microwave on HIGH for 60 seconds.",
+          "timerSeconds": 60,
+          "tip": "Do not overcook or cake becomes rubbery.",
+          "image": "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+        }
+      ]
+    }
+  ],
+  "learnBasics": [
+    {
+      "id": "b1",
+      "title": "How to Boil Eggs Perfectly (Soft, Medium, Hard)",
+      "category": "Basic Cooking Techniques",
+      "summary": "Never guess egg boiling times again! Step-by-step time chart for beginners.",
+      "content": "### Egg Boiling Timer Matrix:\n- **Soft-Boiled (Runny Yolk)**: 6 minutes in boiling water.\n- **Medium-Boiled (Jammy Yolk)**: 7.5 minutes in boiling water.\n- **Hard-Boiled (Firm Yolk)**: 9 to 10 minutes in boiling water.\n\n### Golden Rules:\n1. Always start with cold water covering eggs by 1 inch.\n2. Bring water to boil on high heat, then turn down heat to medium simmer.\n3. Immediately transfer cooked eggs to an **Ice Bath** (cold water + ice) for 3 minutes to stop cooking!",
+      "icon": "Egg"
+    },
+    {
+      "id": "b2",
+      "title": "How to Cook Fluffy Rice Without Sticky Glue",
+      "category": "Basic Cooking Techniques",
+      "summary": "Master the 1:2 water ratio method on stove top.",
+      "content": "### 1:2 Water Ratio Method:\n- 1 cup White Rice = 2 cups Water.\n- Wash rice 2 times under running water until water is no longer super cloudy.\n\n### Steps:\n1. Combine washed rice and 2 cups water in pot.\n2. Bring to boil without lid on HIGH flame.\n3. Once boiling, turn flame to LOWEST setting, put lid ON, and simmer for **12 minutes**. Do NOT open lid!\n4. Turn off heat and let sit covered for 5 minutes. Fluff with fork!",
+      "icon": "Flame"
+    },
+    {
+      "id": "b3",
+      "title": "Kitchen Safety 101 for Absolute Beginners",
+      "category": "Kitchen Safety",
+      "summary": "Essential safety rules to prevent knife cuts, oil splatters, and fire hazards.",
+      "content": "### Top 5 Kitchen Safety Rules:\n1. **The Claw Grip**: Curve fingers inward like a bear claw when holding vegetables while chopping.\n2. **Pan Handle Inward**: Turn stove handles inward towards back of stove.\n3. **Never Water on Oil Fire**: If hot oil catches fire, cover with metal lid or baking soda. NEVER throw water!",
+      "icon": "ShieldAlert"
+    }
+  ],
+  "mealPlans": [
+    {
+      "id": "mp_gym_muscle",
+      "title": "💪 Gym Member 160g High-Protein Muscle Gain Plan",
+      "description": "Designed for weight lifters, bodybuilders, and fitness enthusiasts aiming to build lean muscle mass.",
+      "schedule": [
+        {
+          "day": "Monday",
+          "breakfast": "35g Protein Chocolate PB Shake + 2 Boiled Eggs",
+          "lunch": "28g Protein Paneer & Egg Bhurji Scramble + Whole Wheat Toast",
+          "dinner": "High-Protein Boiled Egg & Chickpea Salad"
+        },
+        {
+          "day": "Tuesday",
+          "breakfast": "Greek Yogurt & Nut Protein Bowl",
+          "lunch": "High Protein Paneer & Veggie Roll",
+          "dinner": "Savory Masala Oats + Scrambled Tofu"
+        },
+        {
+          "day": "Wednesday",
+          "breakfast": "35g Protein Chocolate PB Shake",
+          "lunch": "28g Protein Paneer & Egg Bhurji Scramble",
+          "dinner": "Greek Yogurt & Nut Bowl + 3 Boiled Eggs"
+        },
+        {
+          "day": "Thursday",
+          "breakfast": "High-Protein Greek Bowl + Banana",
+          "lunch": "No-Cook Veggie Paneer Roll",
+          "dinner": "Chana Chaat Bowl + Protein Shake"
+        },
+        {
+          "day": "Friday",
+          "breakfast": "35g Protein Chocolate PB Shake",
+          "lunch": "28g Protein Paneer & Egg Bhurji Scramble",
+          "dinner": "Chickpea & Boiled Egg Bowl"
+        }
+      ]
+    },
+    {
+      "id": "mp_fat_loss",
+      "title": "🔥 Calorie Deficit Fat Loss Plan (Under 1400 kcal)",
+      "description": "High fiber, high volume, low calorie meals for shedding body fat while keeping energy levels high.",
+      "schedule": [
+        {
+          "day": "Monday",
+          "breakfast": "Fresh Mint Cucumber Detox Juice + 2 Boiled Eggs",
+          "lunch": "Avocado & Cucumber Toast",
+          "dinner": "5-Minute Protein Chana Chaat Bowl"
+        },
+        {
+          "day": "Tuesday",
+          "breakfast": "Icy Watermelon Lime Refresher + Greek Yogurt",
+          "lunch": "Chana Chaat Bowl",
+          "dinner": "Savory Masala Oats"
+        },
+        {
+          "day": "Wednesday",
+          "breakfast": "Fresh Mint Cucumber Detox Juice",
+          "lunch": "High-Protein Boiled Egg Salad",
+          "dinner": "No-Cook Veggie Paneer Roll"
+        }
+      ]
+    },
+    {
+      "id": "mp_student",
+      "title": "🎓 Budget Student 5-Day Weekly Plan",
+      "description": "Quick, ultra-cheap meals requiring under 10 minutes preparation.",
+      "schedule": [
+        {
+          "day": "Monday",
+          "breakfast": "5-Minute Easy Egg Toast",
+          "lunch": "No-Cook Veggie Paneer Roll",
+          "dinner": "Savory Masala Oats"
+        },
+        {
+          "day": "Tuesday",
+          "breakfast": "Royal Mango Lassi Shake",
+          "lunch": "Chana Chaat Bowl",
+          "dinner": "Vegetable Maggi Noodles"
+        }
+      ]
+    }
+  ],
+  "ingredientsGuide": [
+    {
+      "id": "i1",
+      "name": "Eggs",
+      "category": "Protein",
+      "storage": "Keep in refrigerator shelf. Fresh for up to 3-4 weeks.",
+      "substitutes": [
+        "Mashed Tofu (for scrambles)",
+        "Flaxseed meal + water"
+      ],
+      "benefits": "High protein, rich in Vitamin B12.",
+      "tips": "Put egg in water bowl. If it sinks, it's fresh!"
+    },
+    {
+      "id": "i2",
+      "name": "Greek Yogurt / Curd",
+      "category": "Probiotic Protein",
+      "storage": "Refrigerate at all times.",
+      "substitutes": [
+        "Cottage Cheese / Paneer",
+        "Coconut Yogurt"
+      ],
+      "benefits": "2x protein of normal curd, great for gut health.",
+      "tips": "Whisk with honey for an instant healthy sweet craving."
+    }
+  ],
+  "kitchenTools": [
+    {
+      "id": "t1",
+      "name": "Blender / Juicer / Smoothie Maker",
+      "essential": true,
+      "useCase": "Juices, protein milkshakes, smoothies, lassi, sauces.",
+      "care": "Rinse jar with warm water immediately after blending so protein powder doesn't stick."
+    },
+    {
+      "id": "t2",
+      "name": "Non-Stick Frying Pan",
+      "essential": true,
+      "useCase": "Eggs, toasts, paneer scramble.",
+      "care": "Use soft sponge to preserve non-stick surface."
+    }
+  ],
+  "tipsAndTricks": [
+    {
+      "id": "tip1",
+      "title": "How to make thick creamy milkshakes without ice cream",
+      "category": "Milkshake Hack",
+      "content": "Peel ripe bananas, slice them, and freeze in ziplock bags! When blended with milk, frozen bananas create ultra-thick creamy texture naturally."
+    },
+    {
+      "id": "tip2",
+      "title": "Pre-workout vs Post-workout nutrition rules",
+      "category": "Gym Tips",
+      "content": "Pre-workout (30m before): Eat fast carbs like banana or watermelon juice. Post-workout (within 45m): Consume 25-30g protein (protein shake or egg/paneer scramble) to repair muscle fibers."
+    }
+  ],
+  "aiKnowledge": [
+    {
+      "keywords": [
+        "juice",
+        "detox",
+        "fat loss"
+      ],
+      "answer": "For weight loss and detox, try our Fresh Mint Cucumber Detox Juice! Cucumber and mint flush out toxins and keep you full."
+    },
+    {
+      "keywords": [
+        "protein",
+        "gym",
+        "shake",
+        "workout"
+      ],
+      "answer": "Post-workout, try our 35g Protein Chocolate Peanut Butter Shake or 28g Protein Paneer Egg Bhurji! Aim for 25-30g protein per meal."
+    },
+    {
+      "keywords": [
+        "stove",
+        "oven",
+        "no cook"
+      ],
+      "answer": "We have awesome No-Stove & No-Oven recipes! Try our Avocado Cucumber Toast, Creamy Mango Lassi, Protein Chana Chaat, or Veggie Paneer Roll."
+    }
+  ]
+}

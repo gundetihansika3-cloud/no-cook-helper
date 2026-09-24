@@ -1,0 +1,22 @@
+{
+  "name": "no-cook-helper",
+  "version": "1.0.0",
+  "description": "Step-by-step cooking guide and platform for non-cooking people and beginners",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server.js",
+    "build": "vite build",
+    "dev:client": "vite"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "cors": "^2.8.6",
+    "express": "^4.22.3",
+    "jsonwebtoken": "^9.0.3",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "vite": "^8.3.0"
+  }
+}

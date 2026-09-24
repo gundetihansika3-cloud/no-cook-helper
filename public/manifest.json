@@ -1,0 +1,22 @@
+{
+  "short_name": "NoCookHelper",
+  "name": "No Cook Helper - Step-by-Step Cooking Guide",
+  "description": "Beginner-friendly platform for non-cooking people, gym members, juices, milkshakes & step-by-step AI video cooking guides.",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=192&h=192&q=80",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=512&h=512&q=80",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0b0f19",
+  "theme_color": "#10b981",
+  "display": "standalone",
+  "orientation": "portrait"
+}
